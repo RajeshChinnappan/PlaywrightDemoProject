@@ -6,6 +6,7 @@ class MyReporter implements Reporter {
 
     passedCount: number = 0;
     failedCount: number = 0;
+    failedRetryCount: number = 0;
 
     // constructor(passedCount : number = 0, failedCount : number = 0){
 
@@ -26,8 +27,13 @@ class MyReporter implements Reporter {
         if (result.status === 'passed') {
             this.passedCount++;
         }
-        else if (result.status === 'failed') {
-            this.failedCount++;
+        else if (result.status === 'failed' ) {
+           this.failedRetryCount++;
+            if(this.failedRetryCount === 3){
+                this.failedCount++;
+                this.failedRetryCount = 0;
+            }
+            
         }
     }
 
