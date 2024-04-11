@@ -1,99 +1,28 @@
-
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sample Report</title>
-
-<style>
-
-        body {
-
-            font-family: Arial, sans-serif;
-
-        }
-
-        table {
-
-            border-collapse: collapse;
-
-            width: 100%;
-
-        }
-
-        th, td {
-
-            border: 1px solid #dddddd;
-
-            text-align: left;
-
-            padding: 8px;
-
-        }
-
-        th {
-
-            background-color: #f2f2f2;
-
-        }
-
-        tr:nth-child(even) {
-
-            background-color: #f2f2f2;
-
-        }
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporter Summary</title>
 </head>
-
 <body>
- 
-<h2>Sample Report</h2>
+    <h1>Reporter Summary</h1>
+    <div id="summary"></div>
 
-<script src="Reporter.ts"></script>
- 
-<table>
+    <script src="Reporter.ts"></script>
+    <script>
+        // Access the properties of the MyReporter instance
+        const passedCount = window.myReporter.passedCount;
+        const failedCount = window.myReporter.failedCount;
+        const failedRetryCount = window.myReporter.failedRetryCount;
 
-<tr>
-
-<th>Test Case</th>
-<script>    
-</script>
-<th>Status</th>
-
-</tr>
-
-<tr>
-
-<td>Test Case 1</td>
-
-<td>Passed</td>
-
-</tr>
-
-<tr>
-
-<td>Test Case 2</td>
-
-<td>Failed</td>
-
-</tr>
-
-<tr>
-
-<td>Test Case 3</td>
-
-<td>Passed</td>
-
-</tr>
-
-</table>
- 
+        // Display the values in the HTML
+        const summaryElement = document.getElementById('summary');
+        summaryElement.innerHTML = `
+            <p>Passed Count: ${passedCount}</p>
+            <p>Failed Count: ${failedCount}</p>
+            <p>Failed Retry Count: ${failedRetryCount}</p>
+        `;
+    </script>
 </body>
-
 </html>

@@ -22,7 +22,6 @@ class MyReporter implements Reporter {
     // }
 
     onTestEnd(test: TestCase, result: TestResult) {
-
         console.log(`Finished test ${test.title}: ${result.status}  `);
         if (result.status === 'passed') {
             this.passedCount++;
@@ -41,7 +40,7 @@ class MyReporter implements Reporter {
         // console.log(`Finished the run: ${result.status} `);
         console.log(`Passed Count : ${this.passedCount} `);
         console.log(`Failed Count :  ${this.failedCount}`);
-        console.log(`Total Count  :  ${this.failedCount + this.failedCount}`);
+        console.log(`Total Count  :  ${this.passedCount + this.failedCount}`);
     }
 }
 
