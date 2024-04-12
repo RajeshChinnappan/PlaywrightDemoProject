@@ -48,7 +48,9 @@ post {
               //  echo "HTML Content: ${htmlContent}"
 
              //  emailext ( to: 'playwrightdemotesting@gmail.com,rajesh.c@reflectionsinfos.com,rajeshc2391@gmail.com', subject: 'Build Notification with HTML Report', body: """<p>Dear User,</p><p>The build is complete. Here is the HTML report:</p><p>${readFile('index.html')}</p>""", mimeType: 'text/html',replyTo: '$DEFAULT_RECIPIENTS')
-               emailext ( to: 'playwrightdemotesting@gmail.com,rajesh.c@reflectionsinfos.com,rajeshc2391@gmail.com', subject: 'Build Notification with HTML Report', body: """<p>Here is some inline JavaScript:</p><script type="text/javascript">console.log("Hello from inline JavaScript!");</script>""", mimeType: 'text/html',replyTo: '$DEFAULT_RECIPIENTS')
+             def body  ='<p>Here is some inline JavaScript:</p><script type="text/javascript">console.log("Hello from inline JavaScript!");</script>'
+              echo body
+             //  emailext ( to: 'playwrightdemotesting@gmail.com,rajesh.c@reflectionsinfos.com,rajeshc2391@gmail.com', subject: 'Build Notification with HTML Report', body: """<p>Here is some inline JavaScript:</p><script type="text/javascript">console.log("Hello from inline JavaScript!");</script>""", mimeType: 'text/html',replyTo: '$DEFAULT_RECIPIENTS')
 
              //   emailext ( mimeType: 'text/html', body: '${FILE, path="playwright-report/index.html"}', to: 'playwrightdemotesting@gmail.com,rajesh.c@reflectionsinfos.com,rajeshc2391@gmail.com', subject: 'Build Notification with HTML Report',replyTo: '$DEFAULT_RECIPIENTS')
 
