@@ -1,0 +1,27 @@
+{
+    "addToCartSamsungGalaxyS6Payload": {
+      "id": "419168b6-3e91-2132-b1a7-5b61207febd3",
+      "cookie": "dGVzdHVzZXI5OTk0MTE3MDcxMDg=",
+      "prod_id": 1,
+      "flag": true    
+    },
+    "addToCartNokiaLumina1520Payload": {
+      "id": "829bc3a8-5f23-4ea8-72dd-baf0b36bbff7",
+      "cookie": "dGVzdHVzZXI5OTk0MTE3MDcxMDg=",
+      "prod_id": 2,
+      "flag": true
+    },
+    "deleteToCartNokiaLumina1520Payload": {
+      "id": "829bc3a8-5f23-4ea8-72dd-baf0b36bbff7",
+      "cookie": "dGVzdHVzZXI5OTk0MTE3MDcxMDg=",
+      "prod_id": 2,
+      "flag": false
+    },
+    "deleteSamsungGalaxyS6PayloadFromAddToCart": {
+      "id": "419168b6-3e91-2132-b1a7-5b61207febd3",
+      "cookie": "dGVzdHVzZXI5OTk0MTE3MDcxMDg=",
+      "prod_id": 1,
+      "flag": false    
+    }
+  }
+  
