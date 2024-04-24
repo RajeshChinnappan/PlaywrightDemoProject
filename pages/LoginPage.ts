@@ -1,4 +1,5 @@
 import { type Locator, type Page } from '@playwright/test';
+import { CommonMethodsPage } from '../pages/CommonMethodsPage';
 
 export class LoginPage {
 
@@ -8,14 +9,13 @@ export class LoginPage {
     readonly passwordInput: Locator;
     readonly loginButton: Locator;
 
-
-
-    constructor(page:Page) {
+    constructor(page: Page) {
         this.page = page;
         this.loginLink = page.getByRole('link', { name: 'Log in' });
         this.usernameInput = page.locator('#loginusername');
         this.passwordInput = page.locator('#loginpassword');
         this.loginButton = page.getByRole('button', { name: 'Log in' });
+        
     }
 
     async launchApp() {
@@ -23,11 +23,12 @@ export class LoginPage {
     }
 
     async loginToApplication(username, password) {
+      await CommonMethodsPage.clickElement(this.loginLink)
         await this.loginLink.click();
-         await this.usernameInput.fill(username);
-         await this.passwordInput.fill(password);
-         await this.loginButton.click();
+        await this.usernameInput.fill(username);
+        await this.passwordInput.fill(password);
+        await this.loginButton.click();
     }
 
-    
+
 }

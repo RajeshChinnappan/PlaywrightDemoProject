@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import * as ExcelJS from 'exceljs';
+import { type Locator, type Page } from '@playwright/test';
 
 export class CommonMethodsPage {
 
@@ -45,13 +46,22 @@ export class CommonMethodsPage {
         await workbook.xlsx.readFile(fileName);
         const worksheet = workbook.getWorksheet(data.sheetName);
         const headerRow = worksheet?.getRow(1);
-        const columnIndex = headerRow.values.findIndex((value: any) => value == data.header);
-        if (columnIndex === -1) {
+        let columnIndex: number | undefined;
+        headerRow?.eachCell((cell, colNumber) => {
+            if (cell.value === data.header) {
+                columnIndex = colNumber;
+                return;
+            }
+        });
+                  
+        if (columnIndex === 0) {
             throw new Error(`Header '${data.header}' not found in the Excel file.`);
         }
-        const cell = worksheet.getCell(2, columnIndex + 1); // Adding 1 to columnIndex as ExcelJS is 1-indexed
-        const value = cell.value;
+        const cell = worksheet?.getCell(2, columnIndex); // Adding 1 to columnIndex as ExcelJS is 1-indexed
+        const value = cell?.value;
         return value;
     }
-    
+
+   
+
 }
