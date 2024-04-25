@@ -44,8 +44,7 @@ describe("Add prouducts to cart and Place order", () => {
     test("Verify user is able to log into app", async function () {
         loginPage = new LoginPage(page);
         await loginPage.launchApp();
-        console.log(process.env.USERNAME)
-        await loginPage.loginToApplication(process.env.USERNAME, process.env.PASSWORD);
+        await loginPage.loginToApplication(username, password);
         const actualhomePageTitlle = await page.title();
         expect(actualhomePageTitlle).toEqual(homePageTitle);
     })
