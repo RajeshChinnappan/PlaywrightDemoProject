@@ -25,21 +25,6 @@ export class CommonMethodsPage {
         return date.getDate();
     }
 
-    // static async readCellValueByHeader(data) {
-    //     const fileName = "testdata/testdata.xlsx";
-    //     const workbook = new ExcelJS.Workbook();
-    //     await workbook.xlsx.readFile(fileName);
-    //     const worksheet = workbook.getWorksheet(data.sheetName);
-    //     const headerRow = worksheet.getRow(1);
-    //     const columnIndex = headerRow.values.findIndex((value) => value === data.header);
-    //     if (columnIndex === 0) {
-    //         throw new Error(`Header '${data.header}' not found in the Excel file.`);
-    //     }
-    //     const cell = worksheet.getCell(2, columnIndex);
-    //     const value = cell.value;
-    //     return value;
-    // }
-
     static async readCellValueByHeader(data: { sheetName: string; header: string }) {
         const fileName = "testdata/testdata.xlsx";
         const workbook = new ExcelJS.Workbook();
@@ -61,7 +46,5 @@ export class CommonMethodsPage {
         const value = cell?.value;
         return value;
     }
-
-   
 
 }

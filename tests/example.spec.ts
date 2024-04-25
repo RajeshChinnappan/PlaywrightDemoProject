@@ -1,9 +1,11 @@
 import { test, expect } from '@playwright/test';
 const { describe } = require("node:test");
 
-describe("Add prouducts to cart and Place order", () => {
 
 test('Verify log into app', async ({ page }) => {
+  const BASE_URL = process.env.BASEURL
+  console.log(BASE_URL+"rajesh");
+  console.log("rajesh");
   await page.goto('https://playwright.dev/');
 
   // Expect a title "to contain" a substring.
@@ -30,4 +32,4 @@ test('Verify place orders', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Installations' })).toBeVisible();
 });
 
-});
+

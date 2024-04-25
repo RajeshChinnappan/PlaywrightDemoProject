@@ -5,7 +5,6 @@ import { CartPage } from '../pages/CartPage';
 import { CommonMethodsPage } from '../pages/CommonMethodsPage';
 const { describe } = require("node:test");
 
-
 describe("Add prouducts to cart and Place order", () => {
     let page;
     let cartPage;
@@ -27,7 +26,6 @@ describe("Add prouducts to cart and Place order", () => {
     test.beforeAll(async ({ browser }) => {
         page = await browser.newPage();
         username = await CommonMethodsPage.readCellValueByHeader({ sheetName: "LoginPage", header: "Username" });
-        console.log(username);
         password = await CommonMethodsPage.readCellValueByHeader({ sheetName: "LoginPage", header: "Password" });
         nexus6 = await CommonMethodsPage.readCellValueByHeader({ sheetName: "HomePage", header: "Nexus6" });
         samsungGalaxyS6 = await CommonMethodsPage.readCellValueByHeader({ sheetName: "HomePage", header: "SamsungGalaxyS6" });
@@ -46,7 +44,8 @@ describe("Add prouducts to cart and Place order", () => {
     test("Verify user is able to log into app", async function () {
         loginPage = new LoginPage(page);
         await loginPage.launchApp();
-        await loginPage.loginToApplication(username, password);
+        console.log(process.env.USERNAME)
+        await loginPage.loginToApplication(process.env.USERNAME, process.env.PASSWORD);
         const actualhomePageTitlle = await page.title();
         expect(actualhomePageTitlle).toEqual(homePageTitle);
     })
@@ -89,7 +88,6 @@ describe("Add prouducts to cart and Place order", () => {
 
 //     test("Verify user is able to delete the added products in cart", async function () {
          
-        
 //         await page.goto('C:/Users/rajesh.c/.jenkins/workspace/PlaywrightProjectEndToEndTesting/allure-report/index.html');
 //         await page.screenshot({ path: 'screenshots/screenshot.png', fullPage: true });
 
