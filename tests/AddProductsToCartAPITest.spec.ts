@@ -1,5 +1,5 @@
-const { test, expect } = require("@playwright/test");
-const { ApiClient } = require("../api-client/ApiClient");
+import {test} from '@playwright/test';
+import {ApiClient} from '../api-client/ApiClient';
 const payloads = JSON.parse(JSON.stringify(require("../testdata/payloads.json")));
 const endpoints = JSON.parse(JSON.stringify(require("../testdata/endpoints.json")));
 

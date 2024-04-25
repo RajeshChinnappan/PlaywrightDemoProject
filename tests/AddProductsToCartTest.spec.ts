@@ -3,9 +3,9 @@ import { LoginPage } from '../pages/LoginPage';
 import { HomePage } from '../pages/HomePage';
 import { CartPage } from '../pages/CartPage';
 import { CommonMethodsPage } from '../pages/CommonMethodsPage';
-const { describe } = require("node:test");
+import { describe } from "node:test";
 
-describe("Add prouducts to cart and Place order", () => {
+test.describe("Add prouducts to cart and Place order", () => {
     let page;
     let cartPage;
     let loginPage;
@@ -43,8 +43,9 @@ describe("Add prouducts to cart and Place order", () => {
 
     test("Verify user is able to log into app", async function () {
         loginPage = new LoginPage(page);
+        console.log(process.env.BASE_URL);
         await loginPage.launchApp();
-        await loginPage.loginToApplication(username, password);
+        await loginPage.loginToApplication(process.env.USERNAME, process.env.PASSWORD);
         const actualhomePageTitlle = await page.title();
         expect(actualhomePageTitlle).toEqual(homePageTitle);
     })

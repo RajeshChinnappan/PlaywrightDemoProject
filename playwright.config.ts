@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config({
 
-  path : `./env/.${process.env.BASE_URL}`,
+  path : `./env/.env.${process.env.ENV}`,
   override: true,
 })
 

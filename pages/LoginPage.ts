@@ -1,7 +1,5 @@
 import { type Locator, type Page } from '@playwright/test';
 import { CommonMethodsPage } from '../pages/CommonMethodsPage';
-
-
 export class LoginPage {
 
     readonly page: Page;
@@ -15,13 +13,12 @@ export class LoginPage {
         this.loginLink = page.getByRole('link', { name: 'Log in' });
         this.usernameInput = page.locator('#loginusername');
         this.passwordInput = page.locator('#loginpassword');
-        this.loginButton = page.getByRole('button', { name: 'Log in' });
-        
+                this.loginButton = page.getByRole('button', { name: 'Log in' });
+
     }
 
     async launchApp() {
-
-        await this.page.goto("https://www.demoblaze.com/index.html");
+        await this.page.goto(process.env.BASE_URL);
     }
 
     async loginToApplication(username, password) {
@@ -30,6 +27,5 @@ export class LoginPage {
         await this.passwordInput.fill(password);
         await this.loginButton.click();
     }
-
 
 }
